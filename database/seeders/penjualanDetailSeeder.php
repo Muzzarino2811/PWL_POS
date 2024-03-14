@@ -6,276 +6,177 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class penjualanDetailSeeder extends Seeder
+class PenjualanDetailSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        // Data seed untuk tabel t_penjualan_detail
-        $penjualanDetailData = [
-            // Transaksi 1
+        $data = [
             [
+                'detail_id' => 1,
                 'penjualan_id' => 1,
                 'barang_id' => 1,
-                'harga' => 10000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 1,
-                'barang_id' => 2,
-                'harga' => 15000,
+                'harga' => 50000,
                 'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'penjualan_tanggal' => '2024-02-29',
             ],
             [
-                'penjualan_id' => 1,
+                'detail_id' => 2,
+                'penjualan_id' => 2,
+                'barang_id' => 1,
+                'harga' => 50000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 3,
+                'penjualan_id' => 3,
+                'barang_id' => 1,
+                'harga' => 50000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 4,
+                'penjualan_id' => 4,
+                'barang_id' => 2,
+                'harga' => 50000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 5,
+                'penjualan_id' => 5,
+                'barang_id' => 2,
+                'harga' => 50000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 6,
+                'penjualan_id' => 6,
+                'barang_id' => 2,
+                'harga' => 50000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 7,
+                'penjualan_id' => 7,
                 'barang_id' => 3,
-                'harga' => 8000,
-                'jumlah' => 3,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            // Transaksi 2
-            [
-                'penjualan_id' => 2,
-                'barang_id' => 2,
-                'harga' => 15000,
+                'harga' => 150000,
                 'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'penjualan_tanggal' => '2024-02-29',
             ],
             [
-                'penjualan_id' => 2,
+                'detail_id' => 8,
+                'penjualan_id' => 8,
+                'barang_id' => 3,
+                'harga' => 150000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 9,
+                'penjualan_id' => 9,
+                'barang_id' => 3,
+                'harga' => 150000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 10,
+                'penjualan_id' => 10,
                 'barang_id' => 4,
-                'harga' => 12000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 2,
-                'barang_id' => 5,
-                'harga' => 2500000,
+                'harga' => 150000,
                 'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            // Transaksi 3
-            [
-                'penjualan_id' => 3,
-                'barang_id' => 3,
-                'harga' => 8000,
-                'jumlah' => 5,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'penjualan_tanggal' => '2024-02-29',
             ],
             [
-                'penjualan_id' => 3,
+                'detail_id' => 11,
+                'penjualan_id' => 11,
+                'barang_id' => 4,
+                'harga' => 150000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 12,
+                'penjualan_id' => 12,
+                'barang_id' => 4,
+                'harga' => 150000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 13,
+                'penjualan_id' => 13,
+                'barang_id' => 5,
+                'harga' => 1500000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 14,
+                'penjualan_id' => 14,
+                'barang_id' => 5,
+                'harga' => 1500000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 15,
+                'penjualan_id' => 15,
+                'barang_id' => 5,
+                'harga' => 1500000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 16,
+                'penjualan_id' => 16,
                 'barang_id' => 6,
-                'harga' => 18000,
-                'jumlah' => 3,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'harga' => 500000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
             ],
             [
-                'penjualan_id' => 3,
+                'detail_id' => 17,
+                'penjualan_id' => 17,
+                'barang_id' => 6,
+                'harga' => 500000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 18,
+                'penjualan_id' => 18,
+                'barang_id' => 6,
+                'harga' => 500000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
+            ],
+            [
+                'detail_id' => 19,
+                'penjualan_id' => 19,
                 'barang_id' => 7,
-                'harga' => 5000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            // Transaksi 4
-            [
-                'penjualan_id' => 4,
-                'barang_id' => 1,
-                'harga' => 10000,
+                'harga' => 30000,
                 'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'penjualan_tanggal' => '2024-02-29',
             ],
             [
-                'penjualan_id' => 4,
-                'barang_id' => 5,
-                'harga' => 2500000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 4,
-                'barang_id' => 8,
-                'harga' => 7000,
-                'jumlah' => 4,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            // Transaksi 5
-            [
-                'penjualan_id' => 5,
-                'barang_id' => 2,
-                'harga' => 15000,
-                'jumlah' => 3,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 5,
-                'barang_id' => 4,
-                'harga' => 12000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 5,
-                'barang_id' => 9,
-                'harga' => 3000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            // Transaksi 6
-            [
-                'penjualan_id' => 6,
-                'barang_id' => 3,
-                'harga' => 8000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 6,
-                'barang_id' => 6,
-                'harga' => 18000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 6,
-                'barang_id' => 8,
-                'harga' => 7000,
-                'jumlah' => 3,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            // Transaksi 7
-            [
-                'penjualan_id' => 7,
-                'barang_id' => 2,
-                'harga' => 15000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 7,
-                'barang_id' => 4,
-                'harga' => 12000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 7,
+                'detail_id' => 20,
+                'penjualan_id' => 20,
                 'barang_id' => 7,
-                'harga' => 5000,
-                'jumlah' => 4,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'harga' => 30000,
+                'jumlah' => 1,
+                'penjualan_tanggal' => '2024-02-29',
             ],
 
-            // Transaksi 8
-            [
-                'penjualan_id' => 8,
-                'barang_id' => 1,
-                'harga' => 10000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 8,
-                'barang_id' => 5,
-                'harga' => 2500000,
-                'jumlah' => 3,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 8,
-                'barang_id' => 9,
-                'harga' => 3000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
 
-            // Transaksi 9
-            [
-                'penjualan_id' => 9,
-                'barang_id' => 2,
-                'harga' => 15000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 9,
-                'barang_id' => 4,
-                'harga' => 12000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 9,
-                'barang_id' => 6,
-                'harga' => 18000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-            // Transaksi 10
-            [
-                'penjualan_id' => 10,
-                'barang_id' => 8,
-                'harga' => 5000,
-                'jumlah' => 4,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 10,
-                'barang_id' => 9,
-                'harga' => 3000,
-                'jumlah' => 2,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'penjualan_id' => 10,
-                'barang_id' => 10,
-                'harga' => 60000,
-                'jumlah' => 1,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
         ];
-
-        // Masukkan data seed ke dalam tabel t_penjualan_detail
-        DB::table('t_penjualan_detail')->insert($penjualanDetailData);
+        DB::table('t_penjualan_detail')->insert($data);
     }
 }

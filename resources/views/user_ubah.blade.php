@@ -1,35 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Update CRUD</title>
+    <title>Form Ubah Data User</title>
 </head>
-
 <body>
-    <h1>Form Ubah Data User</h1>
-    <a href="/user">Kembali</a>
-    <br><br>
-    <form method="post" action="/user/ubah_simpan/{{ $data->user_id }}">
-        {{ csrf_field() }}
-        {{ method_field('PUT') }}
-
-        <label>Username</label>
-        <input type="text" name="username" placeholder="Masukan Username" value="{{ $data->username }}">
+    <form action="/PWL_POS/public/user/tambah_simpan{{$data->user_id}}" method="post">
+    {{ csrf_field() }}
+    {{ method_field('PUT') }}
+        <label for="">Username</label>
+        <input type="text" name="username" value="{{$data->username}}" id="">
         <br>
-        <label>Nama</label>
-        <input type="text" name="nama" placeholder="Masukan Nama" value="{{ $data->username }}">
+        <label for="">Nama</label>
+        <input type="text" name="nama" value="{{$data->nama}}" id="">
         <br>
-        <label>Password</label>
-        <input type="password" name="password" placeholder="Masukan Password" value="{{ $data->password }}">
+        <label for="">Password</label>
+        <input type="password" name="password" value="{{$data->password}}" id="">
         <br>
-        <label>Level ID</label>
-        <input type="number" name="level_id" placeholder="Masukan ID Level" value="{{ $data->level_id }}">
+        <label for="">Level ID</label>
+        <input type="number" name="level_id" value="{{$data->level_id}}" id="">
         <br><br>
-        <input type="submit" class="btn btn-success" value="Ubah">
+        <input type="submit" class="btn btn-success" value="Simpan">
     </form>
 </body>
-
 </html>
