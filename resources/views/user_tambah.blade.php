@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Form Tambah Data User</h1>
-    <form action="/PWL_POS/public/user/tambah_simpan" method="post">
+    <form action="/user/tambah_simpan" method="post">
         {{ csrf_field() }}
 
         <label for="">Username</label>

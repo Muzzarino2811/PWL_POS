@@ -7,7 +7,7 @@
     <title>Form Ubah Data User</title>
 </head>
 <body>
-    <form action="/PWL_POS/public/user/tambah_simpan{{$data->user_id}}" method="post">
+    <form action="/user/ubah_simpan/{{$data->user_id}}" method="post">
     {{ csrf_field() }}
     {{ method_field('PUT') }}
         <label for="">Username</label>
