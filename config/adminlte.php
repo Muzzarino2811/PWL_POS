@@ -316,16 +316,15 @@ return [
             'can' => 'manage-blog',
         ],
         [
+            'text' => 'Manage Kategori',
+            'url' => 'kategori',
+            'icon' => 'bi bi-kanban',
+        ],
+        [
             'text' => 'pages',
             'url' => 'admin/pages',
             'icon' => 'far fa-fw fa-file',
             'label' => 4,
-            'label_color' => 'success',
-        ],
-        [
-            'text' => 'Manage Kategori',
-            'url' => '/kategori',
-            'icon' => 'fas fa-fw fa-folder',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],

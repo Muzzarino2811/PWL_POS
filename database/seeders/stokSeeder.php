@@ -6,98 +6,85 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class stokSeeder extends Seeder
+class StokSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $stokData = [
+        $data = [
             [
-                'barang_id' => 1, // Sesuaikan dengan ID barang tertentu
-                'user_id' => 1, // Sesuaikan dengan ID user tertentu
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 50,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'barang_id' => 2, // Sesuaikan dengan ID barang tertentu
-                'user_id' => 1, // Sesuaikan dengan ID user tertentu
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 100,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'barang_id' => 3, // Sesuaikan dengan ID barang tertentu
-                'user_id' => 2, // Sesuaikan dengan ID user tertentu
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 30,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'barang_id' => 4, // Sesuaikan dengan ID barang tertentu
-                'user_id' => 2, // Sesuaikan dengan ID user tertentu
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 80,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'barang_id' => 5, // Sesuaikan dengan ID barang tertentu
-                'user_id' => 3, // Sesuaikan dengan ID user tertentu
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 25,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
+                'stok_id' => 1,
                 'barang_id' => 1,
-                'user_id' => 3,
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 40,
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'barang_id' => 2,
-                'user_id' => 3,
-                'stok_tanggal' => now(),
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-28 12:38:29',
                 'stok_jumlah' => 60,
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
             [
+                'stok_id' => 2,
+                'barang_id' => 2,
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-27 13:38:29',
+                'stok_jumlah' => 59,
+            ],
+            [
+                'stok_id' => 3,
                 'barang_id' => 3,
                 'user_id' => 1,
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 20,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'stok_tanggal' => '2024-02-26 14:38:29',
+                'stok_jumlah' => 58,
             ],
             [
+                'stok_id' => 4,
                 'barang_id' => 4,
                 'user_id' => 1,
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 70,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'stok_tanggal' => '2024-02-25 15:38:29',
+                'stok_jumlah' => 57,
             ],
             [
+                'stok_id' => 5,
                 'barang_id' => 5,
-                'user_id' => 2,
-                'stok_tanggal' => now(),
-                'stok_jumlah' => 35,
-                'created_at' => now(),
-                'updated_at' => now(),
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-24 16:38:29',
+                'stok_jumlah' => 56,
             ],
-            // Tambahkan data seed lainnya sesuai kebutuhan
+            [
+                'stok_id' => 6,
+                'barang_id' => 6,
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-23 10:38:29',
+                'stok_jumlah' => 55,
+            ],
+            [
+                'stok_id' => 7,
+                'barang_id' => 7,
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-22 11:38:29',
+                'stok_jumlah' => 54,
+            ],
+            [
+                'stok_id' => 8,
+                'barang_id' => 8,
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-21 12:38:29',
+                'stok_jumlah' => 53,
+            ],
+            [
+                'stok_id' => 9,
+                'barang_id' => 9,
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-20 10:38:29',
+                'stok_jumlah' => 52,
+            ],
+            [
+                'stok_id' => 10,
+                'barang_id' => 10,
+                'user_id' => 1,
+                'stok_tanggal' => '2024-02-19 15:38:29',
+                'stok_jumlah' => 51,
+            ],
         ];
-
-        // Masukkan data seed ke dalam tabel t_stok
-        DB::table('t_stok')->insert($stokData);
+        DB::table('t_stok')->insert($data);
     }
 }

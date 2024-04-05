@@ -1,75 +1,39 @@
-@extends('adminlte::page')
+<!DOCTYPE html>
+<html>
+<head>
+<title>CRUD Laravel</title>
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.mi
+n.css">
 
-{{-- Extend and customize the browser title --}}
+<style>
+    body {
+        background: linear-gradient(to bottom right, #007bff, #6c5ce7, #ff3f34);
+        color: white;
+        margin: 0;
+        padding: 0;
+        height: 100%; /* Tinggi 100% dari viewport */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-@section('title')
-    {{ config('adminlte.title') }}
-    @hasSection('subtitle')
-        | @yield('subtitle')
-    @endif
-@stop
+    .container {
+        width: 100%;
+        margin-top: 60px;
+        margin-bottom: 60px;
+        padding: 20px;
+        box-sizing: border-box;
+        background-color: rgba(255, 255, 255, 0.521);
+        border-radius: 10px;
+        box-shadow: 0 0 20px []rgba(0, 0, 0, 0.1);
+    }
+</style>
 
-@vite('resources/js/app.js')
-
-{{-- Extend and customize the page content header --}}
-
-@section('content_header')
-    @hasSection('content_header_title')
-        <h1 class="text-muted">
-            @yield('content_header_title')
-
-            @hasSection('content_header_subtitle')
-                <small class="text-dark">
-                    <i class="fas fa-xs fa-angle-right text-muted"></i>
-                    @yield('content_header_subtitle')
-                </small>
-            @endif
-        </h1>
-    @endif
-@stop
-
-{{-- Rename section content to content_body --}}
-
-@section('content')
-    @yield('content_body')
-@stop
-
-{{-- Create a common footer --}}
-
-@section('footer')
-    <div class="float-right">
-        Version: {{ config('app.version', '1.0.0') }}
-    </div>
-
-    <strong>
-        <a href="{{ config('app.company_url', '#') }}">
-            {{ config('app.company_name', 'My company') }}
-        </a>
-    </strong>
-@stop
-
-{{-- Add common Javascript/Jquery code --}}
-
-@push('js')
-    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
-@endpush
-
-@stack('scripts')
-
-{{-- Add common CSS customizations --}}
-
-@push('css')
-    <link rel="stylesheet"href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css" />
-
-    <style type="text/css">
-        /* You can add AdminLTE customizations here */
-        /*
-                .card-header {
-                    border-bottom: none;
-                }
-                .card-title {
-                    font-weight: 600;
-                }
-                */
-    </style>
-@endpush
+</head>
+<body>
+<div class="container">
+@yield('content')
+</div>
+</body>
+</html>
