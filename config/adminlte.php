@@ -323,10 +323,9 @@ return [
             'label_color' => 'success',
         ],
         [
-            'text' => 'Kategori',
-            'url' => 'views/kategori',
-            'icon' => 'far fa-fw fa-file',
-            'label' => 4,
+            'text' => 'Manage Kategori',
+            'url' => '/kategori',
+            'icon' => 'fas fa-fw fa-folder',
             'label_color' => 'success',
         ],
         ['header' => 'account_settings'],

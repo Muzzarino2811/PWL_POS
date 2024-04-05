@@ -13,33 +13,41 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
+        $kategoriData = [
             [
-                'kategori_id' => 1,
-                'kategori_kode' => 'A',
-                'kategori_nama' => 'Pakaian dan Aksesoris',
+                'kategori_kode' => 'MKN',
+                'kategori_nama' => 'Makanan',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 2,
-                'kategori_kode' => 'B',
-                'kategori_nama' => 'Elektronik dan Gadget',
+                'kategori_kode' => 'MNM',
+                'kategori_nama' => 'Minuman',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 3,
-                'kategori_kode' => 'C',
-                'kategori_nama' => 'Perabotan dan Dekorasi Rumah',
+                'kategori_kode' => 'BRG',
+                'kategori_nama' => 'Barang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 4,
-                'kategori_kode' => 'D',
-                'kategori_nama' => 'Makanan dan Minuman',
+                'kategori_kode' => 'BJS',
+                'kategori_nama' => 'Baju',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 5,
-                'kategori_kode' => 'E',
-                'kategori_nama' => 'Kesehatan dan Kecantikan',
+                'kategori_kode' => 'ELK',
+                'kategori_nama' => 'Elektronik',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
+            // Tambahkan data seed lainnya sesuai kebutuhan
         ];
-        DB::table('m_kategori')->insert($data);
+
+        // Masukkan data seed ke dalam tabel m_kategori
+        DB::table('m_kategori')->insert($kategoriData);
     }
 }

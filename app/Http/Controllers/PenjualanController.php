@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 
 class PenjualanController extends Controller
 {
-    public function Penjualan()
-    {
+    public function Penjualan () {
         return view('penjualan');
     }
 }

@@ -6,20 +6,16 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    public function foodbeverage()
-    {
+    public function foodbeverage () {
         return view('fnb');
     }
-    public function beautyhealth()
-    {
+    public function beautyhealth () {
         return view('bnh');
     }
-    public function homecare()
-    {
+    public function homecare() {
         return view('hnc');
     }
-    public function babykid()
-    {
+    public function babykid () {
         return view('bnk');
     }
 }

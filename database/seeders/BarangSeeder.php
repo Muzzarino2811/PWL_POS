@@ -13,89 +13,102 @@ class BarangSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
+        // Data seed untuk tabel m_barang
+        $barangData = [
             [
-                'barang_id' => 1,
-                'kategori_id' => '1',
-                'barang_kode' => 'A1',
+                'kategori_id' => 1, // Sesuaikan dengan ID kategori Makanan
+                'barang_kode' => 'MK1',
+                'barang_nama' => 'Nasi Goreng',
+                'harga_beli' => 5000,
+                'harga_jual' => 10000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori_id' => 1, // Sesuaikan dengan ID kategori Makanan
+                'barang_kode' => 'MK2',
+                'barang_nama' => 'Ayam Goreng',
+                'harga_beli' => 8000,
+                'harga_jual' => 15000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori_id' => 2, // Sesuaikan dengan ID kategori Minuman
+                'barang_kode' => 'MN1',
+                'barang_nama' => 'Es Teh',
+                'harga_beli' => 2000,
+                'harga_jual' => 5000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori_id' => 2, // Sesuaikan dengan ID kategori Minuman
+                'barang_kode' => 'MN2',
+                'barang_nama' => 'Jus Jeruk',
+                'harga_beli' => 3000,
+                'harga_jual' => 7000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori_id' => 3, // Sesuaikan dengan ID kategori Barang
+                'barang_kode' => 'BR1',
+                'barang_nama' => 'Buku',
+                'harga_beli' => 10000,
+                'harga_jual' => 15000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori_id' => 3, // Sesuaikan dengan ID kategori Barang
+                'barang_kode' => 'BR2',
+                'barang_nama' => 'Pensil',
+                'harga_beli' => 500,
+                'harga_jual' => 1000,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'kategori_id' => 4, // Sesuaikan dengan ID kategori Baju
+                'barang_kode' => 'BJ1',
                 'barang_nama' => 'Kaos',
-                'harga_beli' => 25000,
-                'harga_jual' => 50000,
+                'harga_beli' => 8000,
+                'harga_jual' => 12000,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'barang_id' => 2,
-                'kategori_id' => '1',
-                'barang_kode' => 'A2',
-                'barang_nama' => 'Celana',
-                'harga_beli' => 25000,
-                'harga_jual' => 50000,
+                'kategori_id' => 4, // Sesuaikan dengan ID kategori Baju
+                'barang_kode' => 'BJ2',
+                'barang_nama' => 'Celana Jeans',
+                'harga_beli' => 15000,
+                'harga_jual' => 20000,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'barang_id' => 3,
-                'kategori_id' => '2',
-                'barang_kode' => 'B1',
-                'barang_nama' => 'Earphone',
-                'harga_beli' => 100000,
-                'harga_jual' => 150000,
+                'kategori_id' => 5, // Sesuaikan dengan ID kategori Elektronik
+                'barang_kode' => 'EL1',
+                'barang_nama' => 'Smartphone',
+                'harga_beli' => 2000000,
+                'harga_jual' => 2500000,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'barang_id' => 4,
-                'kategori_id' => '2',
-                'barang_kode' => 'B2',
-                'barang_nama' => 'Speaker',
-                'harga_beli' => 100000,
-                'harga_jual' => 150000,
+                'kategori_id' => 5, // Sesuaikan dengan ID kategori Elektronik
+                'barang_kode' => 'EL2',
+                'barang_nama' => 'Laptop',
+                'harga_beli' => 5000000,
+                'harga_jual' => 6000000,
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
-            [
-                'barang_id' => 5,
-                'kategori_id' => '3',
-                'barang_kode' => 'C1',
-                'barang_nama' => 'Sofa',
-                'harga_beli' => 1000000,
-                'harga_jual' => 1500000,
-            ],
-            [
-                'barang_id' => 6,
-                'kategori_id' => '3',
-                'barang_kode' => 'C2',
-                'barang_nama' => 'Lukisan',
-                'harga_beli' => 300000,
-                'harga_jual' => 500000,
-            ],
-            [
-                'barang_id' => 7,
-                'kategori_id' => '4',
-                'barang_kode' => 'D1',
-                'barang_nama' => 'Beras',
-                'harga_beli' => 25000,
-                'harga_jual' => 30000,
-            ],
-            [
-                'barang_id' => 8,
-                'kategori_id' => '4',
-                'barang_kode' => 'D2',
-                'barang_nama' => 'Susu',
-                'harga_beli' => 30000,
-                'harga_jual' => 50000,
-            ],
-            [
-                'barang_id' => 9,
-                'kategori_id' => '5',
-                'barang_kode' => 'E1',
-                'barang_nama' => 'Sabun',
-                'harga_beli' => 10000,
-                'harga_jual' => 15000,
-            ],
-            [
-                'barang_id' => 10,
-                'kategori_id' => '5',
-                'barang_kode' => 'E2',
-                'barang_nama' => 'Pasta Gigi',
-                'harga_beli' => 10000,
-                'harga_jual' => 15000,
-            ],
-
+            // Tambahkan data seed lainnya sesuai kebutuhan
         ];
-        DB::table('m_barang')->insert($data);
+
+        // Masukkan data seed ke dalam tabel m_barang
+        DB::table('m_barang')->insert($barangData);
     }
 }
