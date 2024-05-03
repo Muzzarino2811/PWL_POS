@@ -12,32 +12,23 @@ class Cek_login
     /**
      * Handle an incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \Closure  $next
-     * @param  mixed  $roles
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next, ...$roles): Response
+    public function handle(Request $request, Closure $next, $roles): Response
     {
-        // Cek apakah pengguna sudah login atau belum
+        // cek sudah login atau belum . jika belum kembali
         if (!Auth::check()) {
             return redirect('login');
         }
-
-        // Simpan data pengguna pada variabel $user
+        // simpan data user pada variable $user
         $user = Auth::user();
 
-        // Jika tidak ada peran yang diberikan, lanjutkan request
-        if (empty($roles)) {
+        // jika user memiliki level sesuai pada kolom pada lanjutan request
+        if ($user->level_id == $roles) {
             return $next($request);
         }
 
-        // Jika pengguna memiliki peran yang sesuai, lanjutkan request
-        if (in_array($user->level_id, $roles)) {
-            return $next($request);
-        }
-
-        // Jika pengguna tidak memiliki akses, kembalikan ke halaman login dengan pesan kesalahan
-        return redirect('login')->with('error', 'Maaf, Anda tidak memiliki akses.');
+        // jika tidak memiliki akses maka kembalikan ke halaman login
+        return redirect('login')->with('error', 'Maaf anda tidak memiliki akses');
     }
 }

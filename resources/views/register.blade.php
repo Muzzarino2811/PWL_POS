@@ -1,4 +1,3 @@
-
 @extends('adminlte::auth.auth-page', ['auth_type' => 'register'])
 
 @php($login_url = View::getSection('login_url') ?? config('adminlte.login_url', 'login'))
@@ -12,19 +11,20 @@
     @php($register_url = $register_url ? url($register_url) : '')
 @endif
 
-@section('auth_header', __('adminlte::adminlte.register_message'))
+@section('auth_header', __('register message'))
 
 @section('auth_body')
-    <form action="{{ route('proses_register') }}" method="POST">
+    <form action="{{ route('proses_register') }}" method="post">
         @csrf
 
+        {{-- Nama field --}}
         <div class="input-group mb-3">
-            <input type="text" name="nama" id="" autofocus value="{{ old('nama') }}"
-                class="form-control @error('nama') is-invalid @enderror" placeholder="Nama">
+            <input type="text" name="nama" class="form-control @error('nama') is-invalid @enderror"
+                value="{{ old('name') }}" placeholder="Nama" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-envolve {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -35,13 +35,14 @@
             @enderror
         </div>
 
+        {{-- Username field --}}
         <div class="input-group mb-3">
-            <input type="text" name="username" id="" autofocus value="{{ old('username') }}"
-                class="form-control @error('username') is-invalid @enderror" placeholder="Username">
+            <input type="text" name="username" class="form-control @error('username') is-invalid @enderror"
+                value="{{ old('name') }}" placeholder="Username" autofocus>
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fas fa-envolve {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fas fa-user {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -51,15 +52,14 @@
                 </span>
             @enderror
         </div>
-
+        {{-- Password field --}}
         <div class="input-group mb-3">
-            <input type="password" name="password" id="password"
-                class="form-control @error('password') is-invalid @enderror"
-                placeholder="{{ __('adminlte::adminlte.password') }}">
+            <input type="password" name="password" class="form-control @error('password') is-invalid @enderror"
+                placeholder="{{ __('password') }}">
 
             <div class="input-group-append">
                 <div class="input-group-text">
-                    <span class="fa fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
+                    <span class="fas fa-lock {{ config('adminlte.classes_auth_icon', '') }}"></span>
                 </div>
             </div>
 
@@ -70,18 +70,20 @@
             @enderror
         </div>
 
-
+        {{-- Register button --}}
         <button type="submit" class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
-            <span class="fas fa-sign-in-alt"></span>
-            {{ __('adminlte::adminlte.register') }}
+            <span class="fas fa-user-plus"></span>
+            {{ __('register') }}
         </button>
     </form>
 @stop
 
 @section('auth_footer')
-    <p class="my-0">
-        <a href="{{ route('login') }}">
-            {{ __('adminlte::adminlte.i_already_have_a_membership') }}
-        </a>
-    </p>
+    @if ($register_url)
+        <p class="my-0">
+            <a href="{{ route('login') }}">
+                {{ __('adminlte::adminlte.i_already_have_a_membership') }}
+            </a>
+        </p>
+    @endif
 @stop

@@ -21,9 +21,11 @@
                         <div class="col-3">
                             <select name="kategori_id" id="kategori_id" class="form-control" required>
                                 <option value="">- Semua -</option>
-                                @foreach ($kategori as $item)
+                                
+                                {{-- @foreach ($kategori as $item)
                                     <option value="{{$item->kategori_id}}">{{$item->kategori_nama}}</option>
-                                @endforeach
+                                @endforeach --}}
+                                
                             </select>
                             <small class="form-text text-muted">Nama Kategori</small>
                         </div>

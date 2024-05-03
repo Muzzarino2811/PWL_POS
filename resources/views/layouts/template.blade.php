@@ -65,7 +65,7 @@
 <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{ asset('adminlte/plugins/datatables-buttons/js/dataTables.button.min.js')}}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-button/js/dataTables.button.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/jszip/jszip.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/pdfmake/pdfmake.min.js')}}"></script>

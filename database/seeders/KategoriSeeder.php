@@ -13,33 +13,41 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        $data = [
+        $kategoriData = [
             [
-                'kategori_id' => 1,
-                'kategori_kode' => 'KCK',
-                'kategori_nama' => 'Kecantikan',
+                'kategori_kode' => 'MKN',
+                'kategori_nama' => 'Makanan',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 2,
-                'kategori_kode' => 'PRT',
-                'kategori_nama' => 'Perlengkapan Rumah',
+                'kategori_kode' => 'MNM',
+                'kategori_nama' => 'Minuman',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 3,
-                'kategori_kode' => 'ALE',
-                'kategori_nama' => 'Alat Elektronik',
+                'kategori_kode' => 'BRG',
+                'kategori_nama' => 'Barang',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 4,
-                'kategori_kode' => 'AKS',
-                'kategori_nama' => 'Aksesoris Komputer dan HP',
+                'kategori_kode' => 'BJS',
+                'kategori_nama' => 'Baju',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
             [
-                'kategori_id' => 5,
-                'kategori_kode' => 'DPR',
-                'kategori_nama' => 'Dapur',
+                'kategori_kode' => 'ELK',
+                'kategori_nama' => 'Elektronik',
+                'created_at' => now(),
+                'updated_at' => now(),
             ],
+            // Tambahkan data seed lainnya sesuai kebutuhan
         ];
-        DB::table('m_kategori')->insert($data);
+
+        // Masukkan data seed ke dalam tabel m_kategori
+        DB::table('m_kategori')->insert($kategoriData);
     }
 }

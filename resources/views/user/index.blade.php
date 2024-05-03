@@ -24,7 +24,7 @@
                     <select name="lavel-id" id="level_id" class="form-control" required>
                         <option value="">- Semua -</option>
                         @foreach ($level as $item)
-                            <option value="{{ $item->level_id}}">{{ $item->level_nama}}</option>
+                        <option value="{{ $item->level_id}}">{{ $item->level_nama}}</option>
                         @endforeach
                     </select>
                     <small class="form-text text-muted">Jenis Pengguna</small>
