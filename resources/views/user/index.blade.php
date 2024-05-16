@@ -1,5 +1,4 @@
 @extends('layouts.template')
-
 @section('content')
     <div class="card card-outline card-primary">
         <div class="card-header">
@@ -8,26 +7,25 @@
                 <a class="btn btn-sm btn-primary mt-1" href="{{ url('user/create') }}">Tambah</a>
             </div>
         </div>
+
         <div class="card-body">
             @if (session('success'))
                 <div class="alert alert-success">{{ session('success') }}</div>
             @endif
             @if (session('error'))
-                <div class="alert alert-danger">{{ session('error') }}</div>
+                <div class="alert alert-success">{{ session('error') }}</div>
             @endif
             <div class="row">
                 <div class="col-md-12">
-                    <div class="form-group row">
-                        <label for="filter" class="control-label col-1 col-form-label">Filter: </label>
-                        <div class="col-3">
-                            <select name="level_id" id="level_id" class="form-control" required>
-                                <option value="">- Semua -</option>
-                                @foreach ($level as $item)
-                                    <option value="{{ $item->level_id }}">{{ $item->level_nama }}</option>
-                                @endforeach
-                            </select>
-                            <small class="form-text text-muted">Level Pengguna</small>
-                        </div>
+                    <label class="col-1 control-label col-form-label">Filter:</label>
+                    <div class="col-3">
+                        <select class="form-control" name="level_id" id="level_id" required>
+                            <option value="">- Semua -</option> <!-- Tambahkan opsi "Semua" -->
+                            @foreach ($level as $item)
+                                <option value="{{ $item->level_id }}">{{ $item->level_nama }}</option>
+                            @endforeach
+                        </select>
+                        <small class="form-texxt text-muted">Level Pengguna</small>
                     </div>
                 </div>
             </div>
@@ -37,7 +35,9 @@
                         <th>ID</th>
                         <th>Username</th>
                         <th>Nama</th>
-                        <th>Level Pengguna</th>
+                        <th>Level
+                            Pengguna</th>
+                        <th>Image</th>
                         <th>Aksi</th>
                     </tr>
                 </thead>
@@ -45,17 +45,15 @@
         </div>
     </div>
 @endsection
-
 @push('css')
 @endpush
-
 @push('js')
     <script>
         $(document).ready(function() {
             var dataUser = $('#table_user').DataTable({
                 serverSide: true,
                 ajax: {
-                    "url": "{{ url('/user/list') }}",
+                    "url": "{{ url('user/list') }}",
                     "dataType": "json",
                     "type": "POST",
                     "data": function(d) {
@@ -63,32 +61,48 @@
                     }
                 },
                 columns: [{
-                    data: "DT_RowIndex",
-                    className: "text-center",
-                    orderable: false,
-                    searchable: false
-                }, {
-                    data: "username",
-                    className: "",
-                    orderable: true,
-                    searchable: true
-                }, {
-                    data: "nama",
-                    className: "",
-                    orderable: true,
-                    searchable: true
-                }, {
-                    data: "level.level_nama",
-                    className: "",
-                    orderable: false,
-                    searchable: false
-                }, {
-                    data: "aksi",
-                    className: "",
-                    orderable: false,
-                    searchable: false
-                }]
+                        data: "DT_RowIndex",
+                        className: "text-center",
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: "username",
+                        className: "",
+                        orderable: true,
+                        searchable: true
+                    },
+                    {
+                        data: "nama",
+                        className: "",
+                        orderable: true,
+                        searchable: true
+                    },
+                    {
+                        data: "level.level_nama",
+                        className: "",
+                        orderable: false,
+                        searchable: false
+                    },
+                    {
+                        data: "image",
+                        className: "",
+                        orderable: false, // orderable: true, jika ingin kolom ini bisa diurutkan
+                        searchable: false, // searchable: true, jika ingin kolom ini bisa dicari
+                        render: function(data, type, full, meta) {
+                            return data ? '<img src="' + data +
+                                '" width="100px">' : '';
+                        }
+                    },
+                    {
+                        data: "aksi",
+                        className: "",
+                        orderable: false,
+                        searchable: false
+                    }
+                ]
             });
+
             $('#level_id').on('change', function() {
                 dataUser.ajax.reload();
             });

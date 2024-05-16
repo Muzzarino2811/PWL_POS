@@ -2,12 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreUserRequest;
-use App\Models\m_user;
-use Illuminate\Http\RedirectResponse;
+use App\Models\UserModel;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
-use Illuminate\Support\Facades\DB;
 
 class POSController extends Controller
 {
@@ -16,9 +12,10 @@ class POSController extends Controller
      */
     public function index()
     {
-        // Fungsi eloquent untuk menampilkan data menggunakan pagination
-        $useri = DB::table('m_user')->join('m_level', 'm_user.level_id', '=', 'm_level.level_id')->get();
-        return view('m_user.index', compact('useri'))->with('i');
+        //fungsi eloquent menampilkan data menggunakan pagination
+        $useri = UserModel::with('level')->get(); // Mengambil semua isi tabel
+
+        return view('m_user.index', compact('useri'));
     }
 
     /**
@@ -32,25 +29,29 @@ class POSController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request): RedirectResponse
+    public function store(Request $request)
     {
-        // Melakukan validasi data
-        $validated = $request->validated();
+        //melakukan validasi data
+        $request->validate([
+            'user_id' => 'max 20',
+            'username' => 'required',
+            'nama' => 'required',
+        ]);
+        //fungsi eloquent untuk menambah data
+        UserModel::create($request->all());
 
-        // Fungsi eloquent untuk menambah data
-        m_user::create($validated);
-
-        return Redirect::to('/user')->with('success', 'User Baru Berhasil Ditambahkan!');
+        return redirect()->route('m_user.index')
+            ->with('success', 'user Berhasil Ditambahkan');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id, m_user $useri)
+    public function show(string $id)
     {
-        $useri = $useri->findOrFail($id);
-
-        return view('m_user.tampil', compact('useri'));
+        //
+        $useri = UserModel::findOrFail($id);
+        return view('m_user.show', compact('useri'));
     }
 
     /**
@@ -58,22 +59,24 @@ class POSController extends Controller
      */
     public function edit(string $id)
     {
-        $useri = m_user::find($id);
-
+        $useri = UserModel::find($id);
         return view('m_user.edit', compact('useri'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreUserRequest $request, string $id): RedirectResponse
+    public function update(Request $request, string $id)
     {
-        $validated = $request->validated();
-
-        // Fungsi eloquent untuk mengupdate data inputan kita
-        m_user::findOrFail($id)->update($validated);
-
-        return Redirect::to('/user')->with('success', 'User Berhasil Diupdate!');
+        $request->validate([
+            'username' => 'required',
+            'nama' => 'required',
+            'password' => 'required',
+        ]);
+        //fungsi eloquent untuk mengupdate data inputan kita m_user::find($id)->update($request->all());
+        //jika data berhasil diupdate, akan kembali ke halaman utama
+        return redirect()->route('m_user.index')
+            ->with('success', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -81,9 +84,8 @@ class POSController extends Controller
      */
     public function destroy(string $id)
     {
-        // Menghapus user berdasarkan id
-        m_user::findOrFail($id)->delete();
-
-        return Redirect::to('/user')->with('success', 'User Berhasil Dihapus!');
+        $useri = UserModel::findOrFail($id)->delete();
+        return redirect()->route('m_user.index')
+            ->with('success', 'data Berhasil Dihapus');
     }
 }

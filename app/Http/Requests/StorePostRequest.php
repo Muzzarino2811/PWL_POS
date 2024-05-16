@@ -3,7 +3,6 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Http\RedirectResponse;
 
 class StorePostRequest extends FormRequest
 {
@@ -23,27 +22,8 @@ class StorePostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'kategori_kode' =>'required',
-            'kategori_nama' =>'required',
-
-            // untuk tabel m_user
-            'level_id' => 'required',
-            'username' => 'required',
-            'nama' => 'required',
-            'password' => 'required',
-
-            //untuk tabel m_level
-            'level_kode' => 'required',
-            'level_nama' => 'required',
+            'kategori_kode' => 'required',
+            'kategori_nama' => 'required',
         ];
-    }
-
-    public function store(StorePostRequest $request): RedirectResponse{
-        $validated = $request->validated();
-
-        $validated = $request->safe()->only(['kategori_kode', 'kategori_nama']);
-        $validated = $request->safe()->except(['kategori_kode', 'kategori_nama']);
-
-        return redirect('/kategori');
     }
 }

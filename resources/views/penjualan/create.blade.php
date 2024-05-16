@@ -12,7 +12,8 @@
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Pembeli</label>
                     <div class="col-11">
-                        <input type="text" class="form-control" id="pembeli" name="pembeli" value="{{ old('pembeli') }}" required>
+                        <input type="text" class="form-control" id="pembeli" name="pembeli"
+                            value="{{ old('pembeli') }}" required>
                         @error('pembeli')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -21,7 +22,8 @@
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Kode Penjualan</label>
                     <div class="col-11">
-                        <input type="text" class="form-control" id="penjualan_kode" name="penjualan_kode" value="{{ old('penjualan_kode') }}" required>
+                        <input type="text" class="form-control" id="penjualan_kode" name="penjualan_kode"
+                            value="{{ old('penjualan_kode') }}" required>
                         @error('penjualan_kode')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -30,7 +32,8 @@
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Tanggal Penjualan</label>
                     <div class="col-11">
-                        <input type="date" class="form-control" id="penjualan_tanggal" name="penjualan_tanggal" value="{{ date('Y-m-d') }}" required>
+                        <input type="datetime-local" class="form-control" id="penjualan_tanggal" name="penjualan_tanggal"
+                            value="{{ date('Y-m-d') }}" required>
                         @error('penjualan_tanggal')
                             <small class="form-text text-danger">{{ $message }}</small>
                         @enderror
@@ -81,11 +84,11 @@
                             </tr>
                         </tbody>
                     </table>
+                    <button type="button" class="btn btn-primary btn-sm" id="tambahBarang">Tambah Barang</button>
                 </div>
-                
+
                 <div class="form-group row">
                     <div class="col-11 offset-1">
-                        <button type="button" class="btn btn-primary btn-sm" id="tambahBarang">Tambah Barang</button>
                         <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
                         <a href="{{ url('penjualan') }}" class="btn btn-sm btn-default ml-1">Kembali</a>
                     </div>
@@ -99,46 +102,46 @@
 @endpush
 
 @push('js')
-<script>
-    $(document).ready(function() {
-        // Ketika tombol "Tambah Barang" diklik
-        $('#tambahBarang').click(function() {
-            // Tambahkan baris baru ke tabel detail penjualan
-            $('#detail tbody').append('<tr>' +
-                '<td><select name="barang_id[]" class="form-control barang" required><option value="">Pilih Barang</option>@foreach ($barang as $item)<option value="{{ $item->barang_id }}">{{ $item->barang_nama }}</option>@endforeach</select></td>' +
-                '<td><input type="text" class="form-control harga" name="harga[]" readonly></td>' +
-                '<td><input type="number" class="form-control jumlah" name="jumlah[]" required></td>' +
-                '<td><input type="number" class="form-control total_harga" name="total_harga[]" readonly></td>' +
-                '</tr>');
-        });
-        // Ketika dropdown barang dipilih, perbarui harga secara otomatis
-        $('body').on('change', 'select[name="barang_id[]"]', function() {
-            var selectedId = $(this).val();
-            var hargaInput = $(this).closest('tr').find('.harga');
-            // Lakukan AJAX request untuk mendapatkan harga barang berdasarkan ID yang dipilih
-            $.ajax({
-                url: '{{ url("penjualan/get-harga") }}/' + selectedId,
-                type: 'GET',
-                success: function(response) {
-                    hargaInput.val(response.harga_jual);
-                },
-                error: function() {
-                    hargaInput.val('');
-                }
+    <script>
+        $(document).ready(function() {
+            // Ketika tombol "Tambah Barang" diklik
+            $('#tambahBarang').click(function() {
+                // Tambahkan baris baru ke tabel detail penjualan
+                $('#detail tbody').append('<tr>' +
+                    '<td><select name="barang_id[]" class="form-control barang" required><option value="">Pilih Barang</option>@foreach ($barang as $item)<option value="{{ $item->barang_id }}">{{ $item->barang_nama }}</option>@endforeach</select></td>' +
+                    '<td><input type="text" class="form-control harga" name="harga[]" readonly></td>' +
+                    '<td><input type="number" class="form-control jumlah" name="jumlah[]" required></td>' +
+                    '<td><input type="number" class="form-control total_harga" name="total_harga[]" readonly></td>' +
+                    '</tr>');
             });
-        });
-        $('body').on('input', 'input[name="jumlah[]"]', function() {
-            updateTotalHarga();
-        });
-        // Fungsi untuk memperbarui total harga
-        function updateTotalHarga() {
-            $('tbody tr').each(function() {
-                var hargaPerUnit = parseFloat($(this).find('.harga').val());
-                var jumlah = parseFloat($(this).find('.jumlah').val());
-                var totalHarga = hargaPerUnit * jumlah;
-                $(this).find('.total_harga').val(totalHarga.toFixed(2));
+            // Ketika dropdown barang dipilih, perbarui harga secara otomatis
+            $('body').on('change', 'select[name="barang_id[]"]', function() {
+                var selectedId = $(this).val();
+                var hargaInput = $(this).closest('tr').find('.harga');
+                // Lakukan AJAX request untuk mendapatkan harga barang berdasarkan ID yang dipilih
+                $.ajax({
+                    url: '{{ url('penjualan/get-harga') }}/' + selectedId,
+                    type: 'GET',
+                    success: function(response) {
+                        hargaInput.val(response.harga_jual);
+                    },
+                    error: function() {
+                        hargaInput.val('');
+                    }
+                });
             });
-        }
-    });
-</script>
+            $('body').on('input', 'input[name="jumlah[]"]', function() {
+                updateTotalHarga();
+            });
+            // Fungsi untuk memperbarui total harga
+            function updateTotalHarga() {
+                $('tbody tr').each(function() {
+                    var hargaPerUnit = parseFloat($(this).find('.harga').val());
+                    var jumlah = parseFloat($(this).find('.jumlah').val());
+                    var totalHarga = hargaPerUnit * jumlah;
+                    $(this).find('.total_harga').val(totalHarga.toFixed(2));
+                });
+            }
+        });
+    </script>
 @endpush

@@ -3,34 +3,60 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\m_kategori;
 use Illuminate\Http\Request;
-use App\Models\KategoriModel;
 
 class KategoriController extends Controller
 {
-    public function index() {
-        return KategoriModel::all();
-    }
+    public function index()
+    {
+        $kategoris = m_kategori::all();
 
-    public function store(Request $request) {
-        $kategori = KategoriModel::create($request->all());
-        return response()->json($kategori, 201);
-    }
-
-    public function show(KategoriModel $kategori) {
-        return KategoriModel::find($kategori);
-    }
-
-    public function update(Request $request, KategoriModel $kategori) {
-        $kategori->update($request->all());
-        return KategoriModel::find($kategori);
-    }
-
-    public function destroy(KategoriModel $kategori) {
-        $kategori->delete();
         return response()->json([
+            'status_code' => 200,
+            'data' => $kategoris
+        ]);
+    }
+
+    public function store(Request $request)
+    {
+        $kategori = m_kategori::create([
+            'kategori_kode' => $request->kategori_kode,
+            'kategori_nama' => $request->kategori_nama,
+        ]);
+
+        return response()->json([
+            'status_code' => 201,
+            'data' => $kategori
+        ]);
+    }
+
+    public function show(m_kategori $kategori)
+    {
+        return response()->json([
+            'status_code' => 200,
+            'data' => $kategori
+        ]);
+    }
+
+    public function update(Request $request, m_kategori $kategori)
+    {
+        $kategori->update($request->all());
+
+        return response()->json([
+            'status_code' => 200,
+            'data' => $kategori
+        ]);
+    }
+
+    public function destroy(m_kategori $kategori)
+    {
+        $kategori->delete();
+
+        return response()->json([
+            'status_code' => 204,
             'success' => true,
-            'message' => 'Data terhapus'
+            'message' => 'Kategori terhapus',
         ]);
     }
 }

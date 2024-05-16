@@ -1,12 +1,10 @@
 @extends('layouts.template')
-
 @section('content')
     <div class="card card-outline card-primary">
         <div class="card-header">
             <h3 class="card-title">{{ $page->title }}</h3>
             <div class="card-tools"></div>
         </div>
-
         <div class="card-body">
             @empty($user)
                 <div class="alert alert-danger alert-dismissible">
@@ -15,8 +13,9 @@
                 </div>
                 <a href="{{ url('user') }}" class="btn btn-sm btn-default mt-2">Kembali</a>
             @else
-                <form method="POST" action="{{ url('/user/' . $user->user_id) }}" class="form-horizontal">
-                    @csrf{!! method_field('PUT') !!}
+                <form method="POST" action="{{ url('/user/' . $user->user_id . '/update') }}" class="form-horizontal">
+                    @csrf
+                    @method('PUT')
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Level</label>
                         <div class="col-11">
@@ -32,7 +31,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Username</label>
                         <div class="col-11">
@@ -43,7 +41,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Nama</label>
                         <div class="col-11">
@@ -54,7 +51,6 @@
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label">Password</label>
                         <div class="col-11">
@@ -62,12 +58,11 @@
                             @error('password')
                                 <small class="form-text text-danger">{{ $message }}</small>
                             @else
-                                <small class="form-text text-muted">Abaikan (jangan diisi) jika
-                                    tidak ingin mengganti password user.</small>
+                                <small class="form-text text-muted">Abaikan (jangan diisi) jika tidak ingin mengganti password
+                                    user.</small>
                             @enderror
                         </div>
                     </div>
-
                     <div class="form-group row">
                         <label class="col-1 control-label col-form-label"></label>
                         <div class="col-11">
@@ -80,7 +75,6 @@
         </div>
     </div>
 @endsection
-
 @push('css')
 @endpush
 @push('js')
