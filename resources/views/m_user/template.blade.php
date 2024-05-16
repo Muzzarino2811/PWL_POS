@@ -1,39 +1,19 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<title>CRUD Laravel</title>
-<link rel="stylesheet"
-href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.mi
-n.css">
-
-<style>
-    body {
-        background: linear-gradient(to bottom right, #007bff, #6c5ce7, #ff3f34);
-        color: white;
-        margin: 0;
-        padding: 0;
-        height: 100%; /* Tinggi 100% dari viewport */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .container {
-        width: 100%;
-        margin-top: 60px;
-        margin-bottom: 60px;
-        padding: 20px;
-        box-sizing: border-box;
-        background-color: rgba(255, 255, 255, 0.521);
-        border-radius: 10px;
-        box-shadow: 0 0 20px []rgba(0, 0, 0, 0.1);
-    }
-</style>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CRUD Laravel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
+
 <body>
-<div class="container">
-@yield('content')
-</div>
+    <div class="container">
+        @yield('content')
+    </div>
 </body>
+
 </html>

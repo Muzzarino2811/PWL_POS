@@ -15,13 +15,11 @@ class UserModel extends Authenticatable implements JWTSubject
 {
     use HasFactory;
 
-    public function getJWTIdentifier()
-    {
+    public function getJWTIdentifier() {
         return $this->getKey();
     }
 
-    public function getJWTCustomClaims()
-    {
+    public function getJWTCustomClaims() {
         return [];
     }
 
@@ -36,25 +34,21 @@ class UserModel extends Authenticatable implements JWTSubject
         'image'
     ];
 
-    protected function image(): Attribute
-    {
+    protected function image(): Attribute {
         return Attribute::make(
             get: fn($image) => url('/storage/posts/' . $image)
         );
     }
 
-    public function level(): BelongsTo
-    {
+    public function level(): BelongsTo {
         return $this->belongsTo(LevelModel::class, 'level_id', 'level_id');
     }
 
-    public function stok(): HasMany
-    {
+    public function stok(): HasMany {
         return $this->hasMany(StokModel::class, 'user_id', 'user_id');
     }
 
-    public function transaksi(): HasMany
-    {
+    public function transaksi(): HasMany {
         return $this->hasMany(TransaksiModel::class, 'user_id', 'user_id');
     }
 }

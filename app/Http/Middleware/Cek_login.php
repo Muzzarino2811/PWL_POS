@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Cek_login
+class cek_login
 {
     /**
      * Handle an incoming request.
@@ -16,19 +16,20 @@ class Cek_login
      */
     public function handle(Request $request, Closure $next, $roles): Response
     {
-        // cek sudah login atau belum . jika belum kembali
-        if (!Auth::check()) {
+        // cek sudah login atau belum
+        if(!Auth::check()) {
             return redirect('login');
         }
-        // simpan data user pada variable $user
+
+        // simpan data user pada variabel user
         $user = Auth::user();
 
-        // jika user memiliki level sesuai pada kolom pada lanjutan request
-        if ($user->level_id == $roles) {
+        // jika user memiliki level sesuai pada field database maka akan lanjutkan request
+        if($user->level_id == $roles) {
             return $next($request);
         }
 
-        // jika tidak memiliki akses maka kembalikan ke halaman login
+        // Jika tidak memiliki akses maka akan kembali ke halaman login
         return redirect('login')->with('error', 'Maaf anda tidak memiliki akses');
     }
 }

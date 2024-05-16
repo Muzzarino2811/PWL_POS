@@ -3,16 +3,17 @@
 @section('content')
     <div class="card card-outline card-primary">
         <div class="card-header">
-            <h3 class="card-title">{{ $page->title }}</h3>
+            <div class="card-title">{{ $page->title }}</div>
             <div class="card-tools"></div>
         </div>
+
         <div class="card-body">
-            <form action="{{ url('stok') }}" method="POST" class="form-horizontal">
+            <form method="POST" action="{{ url('stok') }}" class="form-horizontal">
                 @csrf
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label">Nama Barang</label>
                     <div class="col-11">
-                        <select name="barang_id" id="barang_id" class="form-control" required>
+                        <select class="form-control" name="barang_id" id="barang_id">
                             <option value="">- Pilih Barang -</option>
                             @foreach ($barang as $item)
                                 <option value="{{ $item->barang_id }}">{{ $item->barang_nama }}</option>
@@ -23,31 +24,14 @@
                         @enderror
                     </div>
                 </div>
+
                 <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">Tanggal Stok</label>
+                    <label class="col-1 control-label col-form-label">User Input Stok</label>
                     <div class="col-11">
-                        <input type="date" class="form-control" name="stok_tanggal" value="{{ date('Y-m-d') }}" required>
-                        @error('stok_tanggal')
-                            <small class="form-text text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">Jumlah Stok</label>
-                    <div class="col-11">
-                        <input type="number" class="form-control" name="stok_jumlah" value="{{ old('stok_jumlah') }}" required>
-                        @error('stok_jumlah')
-                            <small class="form-text text-danger">{{ $message }}</small>
-                        @enderror
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-1 control-label col-form-label">Penyetok</label>
-                    <div class="col-11">
-                        <select name="user_id" id="user_id" class="form-control" required>
-                            <option value="">- Pilih Penyetok -</option>
-                            @foreach ($user as $item)
-                                <option value="{{ $item->user_id }}">{{ $item->nama }}</option>
+                        <select class="form-control" name="user_id" id="user_id">
+                            <option value="">- Pilih User -</option>
+                            @foreach ($users as $user)
+                                <option value="{{ $user->user_id }}">{{ $user->nama }}</option>
                             @endforeach
                         </select>
                         @error('user_id')
@@ -55,14 +39,39 @@
                         @enderror
                     </div>
                 </div>
+
+                <div class="form-group row">
+                    <label class="col-1 control-label col-form-label">Tanggal Stok</label>
+                    <div class="col-11">
+                        <input type="date" class="form-control" name="stok_tanggal" id="stok_tanggal" value="{{ old('stok_tanggal') }}">
+                        @error('stok_tanggal')
+                            <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-1 control-label col-form-label">Jumlah Stok</label>
+                    <div class="col-11">
+                        <input type="number" class="form-control" name="stok_jumlah" id="stok_jumlah" value="{{ old('stok_jumlah') }}">
+                        @error('stok_jumlah')
+                            <small class="form-text text-danger">{{ $message }}</small>
+                        @enderror
+                    </div>
+                </div>
+
                 <div class="form-group row">
                     <label class="col-1 control-label col-form-label"></label>
                     <div class="col-11">
                         <button type="submit" class="btn btn-primary btn-sm">Simpan</button>
-                        <a href="{{ url('stok') }}" class="btn btn-sm btn-default ml-1">Kembali</a>
+                        <a class="btn btn-sm btn-default ml-1" href="{{ url('stok') }}">Kembali</a>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 @endsection
+@push('css')
+@endpush
+@push('js')
+@endpush

@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class KategoriSeeder extends Seeder
 {
@@ -13,41 +13,34 @@ class KategoriSeeder extends Seeder
      */
     public function run(): void
     {
-        $kategoriData = [
+        $data = [
             [
-                'kategori_kode' => 'MKN',
-                'kategori_nama' => 'Makanan',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'kategori_kode' => 'MNM',
-                'kategori_nama' => 'Minuman',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'kategori_kode' => 'BRG',
-                'kategori_nama' => 'Barang',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'kategori_kode' => 'BJS',
-                'kategori_nama' => 'Baju',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'kategori_kode' => 'ELK',
+                'kategori_id' => 1,
+                'kategori_kode' => 'ELK12',
                 'kategori_nama' => 'Elektronik',
-                'created_at' => now(),
-                'updated_at' => now(),
             ],
-            // Tambahkan data seed lainnya sesuai kebutuhan
+            [
+                'kategori_id' => 2,
+                'kategori_kode' => 'KCK09',
+                'kategori_nama' => 'Kecantikan',
+            ],
+            [
+                'kategori_id' => 3,
+                'kategori_kode' => 'PRT34',
+                'kategori_nama' => 'Peralatan Rumah Tangga',
+            ],
+            [
+                'kategori_id' => 4,
+                'kategori_kode' => 'LPTP12',
+                'kategori_nama' => 'Laptop',
+            ],
+            [
+                'kategori_id' => 5,
+                'kategori_kode' => 'HP1231',
+                'kategori_nama' => 'Handphone',
+            ],
         ];
 
-        // Masukkan data seed ke dalam tabel m_kategori
-        DB::table('m_kategori')->insert($kategoriData);
+        DB::table('m_kategori')->insert($data);
     }
 }
